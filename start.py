@@ -1,4 +1,6 @@
 # file for Exam 2
+PASSCODE = [1, 2, 1, 2]
+
 numberMisplaced(code) #heuristic
 goalcheck(code)
 changeDigit(code, index)
@@ -28,18 +30,24 @@ def search(startNode):
 
 addSuccessor(currentNode, fringe)
 
-def start():
+def start(input):
 	startNode = {
-		"code": [0, 1, 2, 0],
+		"code": input,
 		"depth": 0,
+<<<<<<< Updated upstream
 		"plan": []
+=======
+		"plan": [input], #a list of past codes
+		"parent": None
+>>>>>>> Stashed changes
 	}
 
-	goalCode = [1, 2, 1, 2]
-
-	endNode = search(startNode, goalCode)
+	endNode = search(startNode)
 
 	if endNode:
-		print("Plan: ", endNode['plan'])
+		for code in endNode["plan"]:
+			print(code)
 	else:
 		print("No Solution Found")
+
+start([0, 1, 2, 0])
