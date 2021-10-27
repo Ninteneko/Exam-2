@@ -1,6 +1,4 @@
 # file for Exam 2
-PASSCODE = [1, 2, 1, 2]
-
 numberMisplaced(code) #heuristic
 goalcheck(code)
 changeDigit(code, index)
