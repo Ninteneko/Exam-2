@@ -26,13 +26,14 @@ def search(startNode):
 
 	return endNode
 
-addSuccessor(currentNode, fringe)
+addSuccessor(currentNode, fringe) #Note how a node is defined in start()
 
 def start():
 	startNode = {
 		"code": [0, 1, 2, 0],
 		"depth": 0,
-		"plan": []
+		"plan": [] #a list of indices to update
+		"parent": None
 	}
 
 	goalCode = [1, 2, 1, 2]
