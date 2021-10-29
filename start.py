@@ -11,14 +11,14 @@ def changeDigit(code,index):
 			newCode.append(code[i])
 	return newCode
 
-def numberMisplaced(code):
+def numberMisplaced(code): #Yarelit
 	counter = 0
 	for i in range(len(code)):
 		if code[i] != goal[i]:
 			counter+=1
 	return counter
 
-def goalcheck(code):
+def goalcheck(code): #Yarelit
     for i in range(len(code)):
         if code[i] != goal[i]:
             return False
