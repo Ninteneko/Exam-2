@@ -1,9 +1,4 @@
 # file for Exam 2
-forbidden = [
-    [0,0,0,0],
-    [1,1,1,1],
-    [2,2,2,2]
-]
 
 goal = [1,2,1,2]
 code = [1,2,1,0]
@@ -11,7 +6,7 @@ code = [1,2,1,0]
 #changeDigit(code, index)
 
 def numberMisplaced(code):
-	counter = 0;
+	counter = 0
 	for i in range(len(code)):
 		if code[i] != goal[i]:
 			counter+=1
