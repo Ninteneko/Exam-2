@@ -78,7 +78,7 @@ def start(input):
 		print("plan:")
 		for code in endNode["plan"]:
 			print(code)
-		print("\nlength: ")
+		print("\ncost: ")
 		print(len(endNode["plan"]))
 	else:
 		print("No Solution Found")
