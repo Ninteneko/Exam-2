@@ -77,6 +77,7 @@ def start(input):
 	if endNode:
 		for code in endNode["plan"]:
 			print(code)
+		print("Cost: ", len(endNode["plan"]))
 	else:
 		print("No Solution Found")
 
