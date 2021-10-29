@@ -1,9 +1,15 @@
 # file for Exam 2
 
 goal = [1,2,1,2]
-code = [1,2,1,0]
 
-#changeDigit(code, index)
+def changeDigit(code,index):
+	newCode = []
+	for i in range(len(code)):
+		if i == index:
+			newCode.append((code[i]+1)%3)
+		else:
+			newCode.append(code[i])
+	return newCode
 
 def numberMisplaced(code):
 	counter = 0
@@ -17,7 +23,6 @@ def goalcheck(code):
         if code[i] != goal[i]:
             return False
     return True
-
 
 def sortFringe(fringe):
 	fringe.sort(key=lambda item: (item["depth"] + numberMisplaced(item['code'])))
@@ -41,8 +46,6 @@ def search(startNode):
 			addSuccessor(currentNode, fringe)
 
 	return endNode
-
-#addSuccessor(currentNode, fringe) #Note how a node is defined in start()
 
 def addSuccessor(currentNode, fringe):
 	forbiddenCodes = [
