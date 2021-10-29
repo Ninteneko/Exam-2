@@ -8,8 +8,14 @@ forbidden = [
 goal = [1,2,1,2]
 code = [1,2,1,0]
 
-numberMisplaced(code) #heuristic
-changeDigit(code, index)
+#changeDigit(code, index)
+
+def numberMisplaced(code):
+	counter = 0;
+	for i in range(len(code)):
+		if code[i] != goal[i]:
+			counter+=1
+	return counter
 
 def goalcheck(code):
     for i in range(len(code)):
@@ -41,20 +47,39 @@ def search(startNode):
 
 	return endNode
 
-addSuccessor(currentNode, fringe)
+#addSuccessor(currentNode, fringe) #Note how a node is defined in start()
 
-def start():
+def addSuccessor(currentNode, fringe):
+	forbiddenCodes = [
+		[0, 0, 0, 0],
+		[1, 1, 1, 1],
+		[2, 2, 2, 2]
+	]
+	for index in range(4):
+		newCode = changeDigit(currentNode["code"], index)
+		if not newCode in forbiddenCodes:
+			newNode = {
+				"code": newCode ,
+				"depth": currentNode["depth"] + 1,
+				"plan": currentNode["plan"] + [newCode],
+				"parent": currentNode
+			}
+			fringe.append(newNode)
+
+def start(input):
 	startNode = {
-		"code": [0, 1, 2, 0],
+		"code": input,
 		"depth": 0,
-		"plan": []
+		"plan": [input], #a list of past codes
+		"parent": None
 	}
 
-	goalCode = [1, 2, 1, 2]
-
-	endNode = search(startNode, goalCode)
+	endNode = search(startNode)
 
 	if endNode:
-		print("Plan: ", endNode['plan'])
+		for code in endNode["plan"]:
+			print(code)
 	else:
 		print("No Solution Found")
+
+start([0, 1, 2, 0])
