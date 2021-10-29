@@ -24,10 +24,10 @@ def goalcheck(code):
             return False
     return True
 
-def sortFringe(fringe):
+def sortFringe(fringe): #Malakai
 	fringe.sort(key=lambda item: (item["depth"] + numberMisplaced(item['code'])))
 
-def search(startNode):
+def search(startNode): #Malakai
 	endNode = None
 	fringe = [startNode]
 	visited = []
@@ -64,7 +64,7 @@ def addSuccessor(currentNode, fringe):
 			}
 			fringe.append(newNode)
 
-def start(input):
+def start(input): #Malakai
 	startNode = {
 		"code": input,
 		"depth": 0,
