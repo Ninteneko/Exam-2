@@ -75,9 +75,12 @@ def start(input):
 	endNode = search(startNode)
 
 	if endNode:
+		print("plan:")
 		for code in endNode["plan"]:
 			print(code)
+		print("\nlength: ")
+		print(len(endNode["plan"]))
 	else:
 		print("No Solution Found")
 
-start([0, 1, 2, 0])
+start([0, 1, 2, 0]) 
