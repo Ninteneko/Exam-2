@@ -4,6 +4,14 @@ goal = [1,2,1,2]
 code = [1,2,1,0]
 
 #changeDigit(code, index)
+def changeDigit(code,index):
+	newCode = []
+	for i in range(len(code)):
+		if i == index:
+			newCode.append((code[i]+1)%3)
+		else:
+			newCode.append(code[i])
+	return newCode
 
 def numberMisplaced(code):
 	counter = 0
