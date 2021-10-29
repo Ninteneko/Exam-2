@@ -42,27 +42,6 @@ def search(startNode):
 
 	return endNode
 
-<<<<<<< HEAD
-addSuccessor(currentNode, fringe) #Note how a node is defined in start()
-
-def addSuccessor(currentNode, fringe):
-	forbiddenCodes = [
-		[0, 0, 0, 0],
-		[1, 1, 1, 1],
-		[2, 2, 2, 2]
-	]
-	for index in range(4):
-		newCode = changeDigit(currentNode["code"], index)
-		if not newCode in forbiddenCodes:
-			newNode = {
-				"code": newCode ,
-				"depth": currentNode["depth"] + 1,
-				"plan": currentNode["plan"] + [newCode],
-				"parent": currentNode
-			}
-			fringe.append(newNode)
-
-=======
 #addSuccessor(currentNode, fringe) #Note how a node is defined in start()
 
 def addSuccessor(currentNode, fringe):
@@ -82,7 +61,6 @@ def addSuccessor(currentNode, fringe):
 			}
 			fringe.append(newNode)
 
->>>>>>> Yarelit_Branch
 def start(input):
 	startNode = {
 		"code": input,
