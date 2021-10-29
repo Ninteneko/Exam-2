@@ -1,15 +1,16 @@
 # file for Exam 2
-forbidden = [
-    [0,0,0,0],
-    [1,1,1,1],
-    [2,2,2,2]
-]
 
 goal = [1,2,1,2]
 code = [1,2,1,0]
 
-numberMisplaced(code) #heuristic
-changeDigit(code, index)
+#changeDigit(code, index)
+
+def numberMisplaced(code):
+	counter = 0
+	for i in range(len(code)):
+		if code[i] != goal[i]:
+			counter+=1
+	return counter
 
 def goalcheck(code):
     for i in range(len(code)):
@@ -41,6 +42,7 @@ def search(startNode):
 
 	return endNode
 
+<<<<<<< HEAD
 addSuccessor(currentNode, fringe) #Note how a node is defined in start()
 
 def addSuccessor(currentNode, fringe):
@@ -60,6 +62,27 @@ def addSuccessor(currentNode, fringe):
 			}
 			fringe.append(newNode)
 
+=======
+#addSuccessor(currentNode, fringe) #Note how a node is defined in start()
+
+def addSuccessor(currentNode, fringe):
+	forbiddenCodes = [
+		[0, 0, 0, 0],
+		[1, 1, 1, 1],
+		[2, 2, 2, 2]
+	]
+	for index in range(4):
+		newCode = changeDigit(currentNode["code"], index)
+		if not newCode in forbiddenCodes:
+			newNode = {
+				"code": newCode ,
+				"depth": currentNode["depth"] + 1,
+				"plan": currentNode["plan"] + [newCode],
+				"parent": currentNode
+			}
+			fringe.append(newNode)
+
+>>>>>>> Yarelit_Branch
 def start(input):
 	startNode = {
 		"code": input,
